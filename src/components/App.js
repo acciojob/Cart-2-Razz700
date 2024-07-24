@@ -109,8 +109,7 @@ const App = () => {
                     if(item)arr1.push(item);
                   });
                   return arr1;
-                })
-               
+                });
              }} id={'cart-item-remove-'+item.id}>Remove</button>
       </div>
     })}
