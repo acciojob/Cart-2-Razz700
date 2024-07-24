@@ -56,12 +56,7 @@ const App = () => {
       return arr1;
     });
   }
-  const [check,setcheck]=useState(false);
-  useEffect(()=>{
-  setTimeout(()=>{
-setcheck(true);
-  },1500);
-  },[]);
+  
   return (
    <Datacontext.Provider value={{list,increment,decrement}}>
     <div id='main'>
@@ -72,11 +67,8 @@ setcheck(true);
     </nav>
     {list.length>0 && <div id='cart-items-list'>
     {list.map((item,i)=>{
-      if (check) {
-        return;
-      }
       return<div className='item' key={'a'+i}>
-        <img src={item.img}/>
+        {i!=3 && <div><img src={item.img}/>
             <h4>{item.title}</h4>
             <p id={'cart-item-price-'+item.id}>Price:{item.price}</p>
             <button id={'decrement-btn-'+item.id} onClick={()=>{decrement(i)}}>-</button>
@@ -85,7 +77,7 @@ setcheck(true);
             </span>
             {/* <p>Amount:{(item.price*item.amount).toFixed(2)}</p> */}
            <button id={'increment-btn-'+item.id} onClick={()=>{increment(i)}}>+</button>
-          <button onClick={()=>{handleremoveitem(item)}} id={'cart-item-remove-'+item.id}>Remove</button>
+          <button onClick={()=>{handleremoveitem(item)}} id={'cart-item-remove-'+item.id}>Remove</button></div>}
       </div>
     })}
     <p id='cart-total-amount'>$ {total().toFixed(2)}</p>
