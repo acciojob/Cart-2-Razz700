@@ -68,7 +68,7 @@ const App = () => {
             <h4>{item.title}</h4>
             <p id={'cart-item-price-'+item.id}>Price:{item.price}</p>
              <button id={'decrement-btn-'+item.id} onClick={()=>{setcount(count=>{const arr=[...count];
-              arr[i]==1?handleremoveitem(item):arr[i]--;
+              arr[i]==1?arr[i]=1:arr[i]--;
               return arr;
              });
              if (count[i]!=1) {
@@ -76,18 +76,19 @@ const App = () => {
                 amount[i]-=parseInt(item.price);
                 return amount;
                });
-             }else{
-              setamount(amount=>{
-                const arr=[...amount];
-                delete arr[i];
-                const arr1=[];
-                arr.forEach((item)=>{
-                  if(item)arr1.push(item);
-                });
-                return arr1;
-              })
              }
-            }}>-</button>{count[i]}<button id={'increment-btn-'+item.id} onClick={()=>{
+            //  else{
+            //   setamount(amount=>{
+            //     const arr=[...amount];
+            //     delete arr[i];
+            //     const arr1=[];
+            //     arr.forEach((item)=>{
+            //       if(item)arr1.push(item);
+            //     });
+            //     return arr1;
+            //   })
+            //  }
+            }}>-</button><span id={'cart-amount-'+item.id}>{count[i]}</span><button id={'increment-btn-'+item.id} onClick={()=>{
               setcount(count=>{
                 const arr=[...count];
                 arr[i]++;
@@ -98,8 +99,8 @@ const App = () => {
                 return amount;
               });
              }}>+</button>
-             <p id={'cart-amount-'+item.id}>
-             {count[i]}
+             <p>
+             Amount:{amount[i].toFixed(2)}
              </p>
              <button onClick={()=>{
                handleremoveitem(item);
