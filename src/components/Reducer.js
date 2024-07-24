@@ -17,17 +17,10 @@ export const initialState={
         {
           id: 3,
           title: "Xiaomi Redmi Note 2",
-          price: 699.99,
+          price: 699.99+199.99,
           img: "https://res.cloudinary.com/diqqf3eq2/image/upload/v1583368224/phone-3_h2s6fo.png",
           amount: 1
-        },
-        {
-            id: 4,
-            title: "Xiaomi Note Fold 5",
-            price: 199.99,
-            img: "https://res.cloudinary.com/diqqf3eq2/image/upload/v1583368224/phone-3_h2s6fo.png",
-            amount: 1
-          }
+        }
       ]
 }
 export const Reducer=((state,action)=>{

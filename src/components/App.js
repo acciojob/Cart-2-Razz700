@@ -71,9 +71,9 @@ const App = () => {
             <h4>{item.title}</h4>
             <p id={'cart-item-price-'+item.id}>Price:{item.price}</p>
             <button id={'decrement-btn-'+item.id} onClick={()=>{decrement(i)}}>-</button>
-            {i!=3 && <span id={'cart-amount-'+item.id}>
+           <span id={'cart-amount-'+item.id}>
              {item.amount}
-            </span>}
+            </span>
             {/* <p>Amount:{(item.price*item.amount).toFixed(2)}</p> */}
            <button id={'increment-btn-'+item.id} onClick={()=>{increment(i)}}>+</button>
           <button onClick={()=>{handleremoveitem(item)}} id={'cart-item-remove-'+(item.id-1)}>Remove</button>
