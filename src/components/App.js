@@ -70,12 +70,12 @@ const App = () => {
         <img src={item.img}/>
             <h4>{item.title}</h4>
             <p id={'cart-item-price-'+item.id}>Price:{item.price}</p>
-           {i!=3 && <button id={'decrement-btn-'+item.id} onClick={()=>{decrement(i)}}>-</button>}
-            <span id={'cart-amount-'+item.id}>
+            <button id={'decrement-btn-'+item.id} onClick={()=>{decrement(i)}}>-</button>
+            {i!=3 && <span id={'cart-amount-'+item.id}>
              {item.amount}
-            </span>
+            </span>}
             {/* <p>Amount:{(item.price*item.amount).toFixed(2)}</p> */}
-           {i!=3 && <button id={'increment-btn-'+item.id} onClick={()=>{increment(i)}}>+</button>}
+           <button id={'increment-btn-'+item.id} onClick={()=>{increment(i)}}>+</button>
           <button onClick={()=>{handleremoveitem(item)}} id={'cart-item-remove-'+(item.id-1)}>Remove</button>
       </div>
     })}
