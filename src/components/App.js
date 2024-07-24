@@ -29,6 +29,13 @@ const App = () => {
       img: "https://res.cloudinary.com/diqqf3eq2/image/upload/v1583368224/phone-3_h2s6fo.png",
       amount: 1,
     },
+    {
+      id: 4,
+      title: "Xiaomi Redmi Note 5",
+      price: 1699.99,
+      img: "https://res.cloudinary.com/diqqf3eq2/image/upload/v1583368224/phone-3_h2s6fo.png",
+      amount: 1,
+    }
   ];
   const [list,setlist]=useState(state.arraydata);
   const handleremoveitem=(item)=>{
@@ -77,7 +84,6 @@ const App = () => {
             </span>
             <button id={'increment-btn-'+item.id} onClick={()=>{increment(i)}}>+</button>
              {/* <p>Amount:{(item.price*item.amount).toFixed(2)}</p> */}
-             <button onClick={()=>{handleremoveitem(item)}} id={'cart-item-remove-'+item.id}>Remove</button>
              <button onClick={()=>{handleremoveitem(item)}} id={'cart-item-remove-'+item.id}>Remove</button>
       </div>
     })}
