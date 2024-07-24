@@ -99,7 +99,7 @@ const App = () => {
               });
              }}>+</button>
              <p id={'cart-amount-'+item.id}>
-             Amount:{amount[i].toFixed(2)}
+             {count[i]}
              </p>
              <button onClick={()=>{
                handleremoveitem(item);
