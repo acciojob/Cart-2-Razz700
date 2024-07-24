@@ -3,6 +3,9 @@
     margin: 0px;
     box-sizing: border-box;
 }
+body{
+    padding: 20px;
+}
 h1 {
     color: #27aedb;
     text-align: center;
