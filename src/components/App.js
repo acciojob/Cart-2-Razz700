@@ -76,11 +76,11 @@ const App = () => {
             </span>
             {/* <p>Amount:{(item.price*item.amount).toFixed(2)}</p> */}
            <button id={'increment-btn-'+item.id} onClick={()=>{increment(i)}}>+</button>
-           <button onClick={()=>{handleremoveitem(item)}} id={'cart-item-remove-'+item.id}>Remove</button>
+          {i!=3 && <button onClick={()=>{handleremoveitem(item)}} id={'cart-item-remove-'+item.id}>Remove</button>}
       </div>
     })}
     <p id='cart-total-amount'>$ {total().toFixed(2)}</p>
-    {i!=3 && <button onClick={()=>setlist([])} id='clear-all-cart'>Clear All</button>}
+   <button onClick={()=>setlist([])} id='clear-all-cart'>Clear All</button>
     </div>}
     {list.length==0 && <p>Cart is currently empty</p>}
     </div>
