@@ -62,6 +62,7 @@ const App = () => {
 </svg>(<span id='nav-cart-item-count'>{list.length}</span>Items)<h1>useReducer</h1>
     </nav>
     {list.length>0 && <div id='cart-items-list'>
+   {/* ////????? */}
     {array.map((item,i)=>{
       return <div className='item' key={'a'+i}>
         <img src={item.img}/>
@@ -87,7 +88,7 @@ const App = () => {
                 return arr1;
               })
              }
-            }}>-</button><span>{count[i]}</span>
+            }}>-</button>{count[i]}
             <button id={'increment-btn-'+item.id} onClick={()=>{
               setcount(count=>{
                 const arr=[...count];
