@@ -24,7 +24,7 @@ export const initialState={
         {
             id: 4,
             title: "Xiaomi Note Fold 5",
-            price: 299.99,
+            price: 199.99,
             img: "https://res.cloudinary.com/diqqf3eq2/image/upload/v1583368224/phone-3_h2s6fo.png",
             amount: 1,
           }
