@@ -31,7 +31,12 @@ const App = () => {
   // ];
   const [list,setlist]=useState(state.arraydata);
   const handleremoveitem=(item)=>{
-    setlist((list)=>list.filter((elem)=>elem.title!=item.title));
+    //setlist((list)=>list.filter((elem)=>elem.title!=item.title));
+    setrender(render=>{
+      const a=[...render];
+      a[item]={display:'none'};
+      return a;
+    })
   }
  const total=()=>{
   let a=0;
@@ -56,6 +61,7 @@ const App = () => {
       return arr1;
     });
   }
+  const [render,setrender]=useState([{display:'block'},{display:'block'},{display:'block'}])
   return (
    <Datacontext.Provider value={{list,increment,decrement}}>
     <div id='main'>
@@ -66,7 +72,7 @@ const App = () => {
     </nav>
     {list.length>0 && <div id='cart-items-list'>
     {list.map((item,i)=>{
-      return <div className='item' key={'a'+i}>
+      return <div style={render[i]} className='item' key={'a'+i}>
         <img src={item.img}/>
             <h4>{item.title}</h4>
             <p id={'cart-item-price-'+item.id}>Price:{item.price}</p>
@@ -76,7 +82,7 @@ const App = () => {
             </span>
             {/* <p>Amount:{(item.price*item.amount).toFixed(2)}</p> */}
            <button id={'increment-btn-'+item.id} onClick={()=>{increment(i)}}>+</button>
-          <button onClick={()=>{handleremoveitem(item)}} id={'cart-item-remove-'+item.id}>Remove</button>
+          <button onClick={()=>{handleremoveitem(i)}} id={'cart-item-remove-'+item.id}>Remove</button>
       </div>
     })}
     <p id='cart-total-amount'>$ {total().toFixed(2)}</p>
