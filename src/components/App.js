@@ -87,7 +87,7 @@ const App = () => {
                 return arr1;
               })
              }
-            }}>-</button>{count[i]}<button id={'increment-btn-'+item.id} onClick={()=>{
+            }}>-</button><span id={'cart-amount-'+item.id}>{count[i]}</span><button id={'increment-btn-'+item.id} onClick={()=>{
               setcount(count=>{
                 const arr=[...count];
                 arr[i]++;
@@ -98,7 +98,7 @@ const App = () => {
                 return amount;
               });
              }}>+</button>
-             <p id={'cart-amount-'+item.id}>{amount[i]}</p>
+             <p>Amount:{amount[i]}</p>
              <button onClick={()=>{
                handleremoveitem(item);
                 setamount(amount=>{
