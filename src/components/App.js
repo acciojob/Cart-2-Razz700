@@ -113,7 +113,7 @@ const App = () => {
              }} id={'cart-item-remove-'+item.id}>Remove</button>
       </div>
     })}
-    <p id='cart-total-amount'>{total()}</p>
+    <p id='cart-total-amount'>{total().toFixed(2)}</p>
     <button onClick={()=>{
       setlist([]);
     }} id='clear-all-cart'>Clear All</button>
