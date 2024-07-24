@@ -98,8 +98,8 @@ const App = () => {
                 return amount;
               });
              }}>+</button>
-             <p id={'cart-amount-'+item.id}>{count[i]}
-              {/* {amount[i].toFixed(2)} */}
+             <p id={'cart-amount-'+item.id}>
+              {amount[i].toFixed(2)}
              </p>
              <button onClick={()=>{
                handleremoveitem(item);
