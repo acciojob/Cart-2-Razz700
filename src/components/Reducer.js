@@ -20,7 +20,7 @@ export const initialState={
           price: 699.99,
           img: "https://res.cloudinary.com/diqqf3eq2/image/upload/v1583368224/phone-3_h2s6fo.png",
           amount: 1,
-        },
+        }
       ]
 }
 export const Reducer=((state,action)=>{
