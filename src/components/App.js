@@ -70,7 +70,7 @@ const App = () => {
         <img src={item.img}/>
             <h4>{item.title}</h4>
             <p id={'cart-item-price-'+item.id}>Price:{item.price}</p>
-            <button id={'decrement-btn-'+item.id} onClick={()=>{decrement(i)}}>-</button>
+           {i!=3 && <button id={'decrement-btn-'+item.id} onClick={()=>{decrement(i)}}>-</button>}
             <span id={'cart-amount-'+item.id}>
              {item.amount}
             </span>
