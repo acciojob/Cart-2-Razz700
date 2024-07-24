@@ -1,6 +1,12 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
 h1 {
     color: #27aedb;
     text-align: center;
+    font-size: 30px;
     }
     
 
@@ -9,4 +15,14 @@ button{
     text-align: center;
     justify-content: center;
     align-items: center;
+}
+ svg{
+   width: 30px;
+   height: 30px;
+} 
+
+.navbar{
+    display: flex;
+    justify-content: center;
+    align-items: center;   
 }
