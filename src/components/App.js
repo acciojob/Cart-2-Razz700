@@ -1,8 +1,10 @@
 <p>Now I can render any React component on any DOM node I want using ReactDOM.render</p>
-import React, { createContext, useState } from 'react'
+import React, { createContext, memo, useRef, useState } from 'react'
 import '../styles/App.css'
 import { useReducer } from 'react'
 import { Reducer,initialState } from './Reducer'
+import Amount from './Amount'
+export const Datacontext=createContext();
 const App = () => {
   const [state,dispatch]=useReducer(Reducer,initialState);
   const array=[
@@ -29,8 +31,6 @@ const App = () => {
     },
   ];
   const [list,setlist]=useState(state.arraydata);
-  const [count,setcount]=useState([1,1,1]);
-  const Datacontext=createContext();
   const handleremoveitem=(item)=>{
     setlist((list)=>list.filter((elem)=>elem.title!=item.title));
   }
@@ -58,7 +58,7 @@ const App = () => {
     });
   }
   return (
-   <Datacontext.Provider value={array}>
+   <Datacontext.Provider value={{list,increment,decrement}}>
     <div id='main'>
     <nav className='navbar'>
     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
@@ -72,9 +72,11 @@ const App = () => {
             <h4>{item.title}</h4>
             <p id={'cart-item-price-'+item.id}>Price:{item.price}</p>
             <button id={'decrement-btn-'+item.id} onClick={()=>{decrement(i)}}>-</button>
-            <span id={'cart-amount-'+item.id}>{item.amount}</span>
+            <span id={'cart-amount-'+item.id}>
+             {item.amount}
+            </span>
             <button id={'increment-btn-'+item.id} onClick={()=>{increment(i)}}>+</button>
-             <p>Amount:{(item.price*item.amount).toFixed(2)}</p>
+             {/* <p>Amount:{(item.price*item.amount).toFixed(2)}</p> */}
              <button onClick={()=>{handleremoveitem(item)}} id={'cart-item-remove-'+item.id}>Remove</button>
       </div>
     })}
@@ -88,4 +90,4 @@ const App = () => {
   )
 }
 
-export default App
+export default memo(App)
