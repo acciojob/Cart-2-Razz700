@@ -68,7 +68,7 @@ const App = () => {
             <h4>{item.title}</h4>
             <p id={'cart-item-price-'+item.id}>Price:{item.price}</p>
              <button id={'decrement-btn-'+item.id} onClick={()=>{setcount(count=>{const arr=[...count];
-              arr[i]==1?handleremoveitem(item):arr[i]--;
+              arr[i]==1?arr[i]=1:arr[i]--;
               return arr;
              });
              if (count[i]!=1) {
