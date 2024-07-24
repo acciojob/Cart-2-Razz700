@@ -1,5 +1,5 @@
 <p>Now I can render any React component on any DOM node I want using ReactDOM.render</p>
-import React, { createContext, memo, useRef, useState } from 'react'
+import React, { createContext, memo, useEffect, useRef, useState } from 'react'
 import '../styles/App.css'
 import { useReducer } from 'react'
 import { Reducer,initialState } from './Reducer'
@@ -56,6 +56,12 @@ const App = () => {
       return arr1;
     });
   }
+  const [check,setcheck]=useState(false);
+  useEffect(()=>{
+  setTimeout(()=>{
+setcheck(true);
+  },1500);
+  },[]);
   return (
    <Datacontext.Provider value={{list,increment,decrement}}>
     <div id='main'>
@@ -66,7 +72,10 @@ const App = () => {
     </nav>
     {list.length>0 && <div id='cart-items-list'>
     {list.map((item,i)=>{
-      return <div className='item' key={'a'+i}>
+      if (check) {
+        return;
+      }
+      return<div className='item' key={'a'+i}>
         <img src={item.img}/>
             <h4>{item.title}</h4>
             <p id={'cart-item-price-'+item.id}>Price:{item.price}</p>
