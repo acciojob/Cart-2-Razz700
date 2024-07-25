@@ -80,7 +80,7 @@ const App = () => {
             <p id={'cart-item-price-'+item.id}>Price:{item.price}</p>
             <button id={'decrement-btn-'+item.id} onClick={()=>{decrement(i)}}>-</button>
            <span id={'cart-amount-'+item.id}>
-             {item.amount}
+             {item.amount-1}
             </span>
             {/* <p>Amount:{(item.price*item.amount).toFixed(2)}</p> */}
            <button id={'increment-btn-'+item.id} onClick={()=>{increment(i)}}>+</button>
