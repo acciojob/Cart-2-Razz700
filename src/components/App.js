@@ -75,7 +75,7 @@ const App = () => {
     {list.length>0 && <div id='cart-items-list'>
     {list.map((item,i)=>{
       return<div className='item' key={'a'+i}>
-        <img src={item.img}/>
+        {/* <img src={item.img}/> */}
             <h4>{item.title}</h4>
             <p id={'cart-item-price-'+item.id}>Price:{item.price}</p>
             <button id={'decrement-btn-'+item.id} onClick={()=>{decrement(i)}}>-</button>
@@ -89,7 +89,7 @@ const App = () => {
     })}
     <p id='cart-total-amount'>$ {total().toFixed(2)}</p>
     </div>}
-    <button onClick={()=>{}} id='clear-all-cart'>Clear All</button>
+    <button onClick={()=>setlist([])} id='clear-all-cart'>Clear All</button>
     {list.length==0 && <p>Cart is currently empty</p>}
     </div>
     
