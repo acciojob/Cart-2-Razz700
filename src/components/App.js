@@ -88,8 +88,8 @@ const App = () => {
       </div>
     })}
     <p id='cart-total-amount'>$ {total().toFixed(2)}</p>
-    </div>}
     <button onClick={()=>setlist([])} id='clear-all-cart'>Clear All</button>
+    </div>}
     {list.length==0 && <p>Cart is currently empty</p>}
     </div>
     
