@@ -74,7 +74,7 @@ const App = () => {
     </nav>
     {list.length>0 && <div id='cart-items-list'>
     {list.map((item,i)=>{
-      return<div className='item' key={'a'+i}>
+      return<div className='cart-item' key={'a'+i}>
         <img src={item.img}/>
             <h4>{item.title}</h4>
             <p id={'cart-item-price-'+item.id}>Price:{item.price}</p>
